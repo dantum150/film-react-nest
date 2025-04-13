@@ -12,7 +12,8 @@ export class FilmController {
         return this.serviceFilm.getAll()
     }
 
-    @Get(':id')
+    // /api/afisha/:id/schedule
+    @Get(':id/schedule')
     getOne(@Param('id') id:string){
         return this.serviceFilm.getOne(id)
     }

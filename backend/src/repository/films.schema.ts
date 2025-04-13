@@ -1,6 +1,18 @@
 // src/movies/schemas/movie.schema.ts
 import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { Schema as MongooseSchema} from 'mongoose';
+
+export interface ISchedule {
+  id: string
+  daytime: string
+  hall: number
+  rows: number
+  seats: number
+  price: number
+  taken: string[]
+}
+
 
 @Schema()
 export class Films extends Document {
@@ -27,6 +39,9 @@ export class Films extends Document {
 
   @Prop({ required: true })
   cover: string;
+
+  @Prop({ type: MongooseSchema.Types.Array})
+  schedule: ISchedule [] ;
 }
 
 export const FilmsSchema = SchemaFactory.createForClass(Films);
