@@ -1,7 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { InjectModel } from "@nestjs/mongoose";
 import { Films } from "src/repository/films.schema";
-import { Model } from "mongoose";
 import { FilmRepository } from "src/repository/film.repository";
 
 
@@ -16,7 +14,7 @@ export class FilmService {
         return this.repository.getAll()
     }
         
-   async getOne(id:string){
+   async getOne(id:number){
         return this.repository.getOne(id)
     }
 
